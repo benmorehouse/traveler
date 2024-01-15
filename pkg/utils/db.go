@@ -2,6 +2,8 @@ package utils
 
 import (
 	"database/sql"
+
+	_ "github.com/go-sql-driver/mysql" // MySQL driver
 )
 
 // InitDatabase will return a single database connection

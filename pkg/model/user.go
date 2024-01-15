@@ -2,5 +2,6 @@ package model
 
 // User is the struct of the user
 type User struct {
-	ID uint
+	ID    uint
+	Email string `json:"email"`
 }

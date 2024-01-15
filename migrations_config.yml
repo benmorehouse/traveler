@@ -1,0 +1,4 @@
+production:
+  dialect: mysql
+  datasource: root:password@tcp(localhost:3306)/traveler
+  dir: migrations/

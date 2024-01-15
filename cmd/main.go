@@ -14,7 +14,10 @@ var rootCmd = &cobra.Command{
 	Short: "Traveler - API for travel data for users",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		config := config.DefaultConfig()
-		server := api.InitServer()
+		server, err := api.InitServer()
+		if err != nil {
+			return fmt.Errorf("[InitServerError] %w", err)
+		}
 		return server.Run(fmt.Sprintf("%s:%s", config.Host, config.Port))
 	},
 }
