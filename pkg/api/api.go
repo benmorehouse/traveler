@@ -19,6 +19,7 @@ func InitServer() (*gin.Engine, error) {
 	if err != nil {
 		return nil, fmt.Errorf("[database_connect_error] %w", err)
 	}
+
 	// next, create repos
 	userRepo := repo.ConnectUserRepo(db)
 	countryRepo := repo.ConnectCountryRepo(db)
@@ -40,16 +41,14 @@ func InitServer() (*gin.Engine, error) {
 
 	// users
 	v1.POST("/users/create", userSvc.CreateUser)
-	v1.GET("/users/", userSvc.GetUser)
+	v1.GET("/user", userSvc.GetUser)
 
 	// country and region info
 	v1.GET("/countries", countrySvc.ListCountries)
-	v1.GET("/regions", countrySvc.ListRegions)
 
 	// user to country
-	v1.GET("/user/countries", userSvc.GetCountriesForUser) // get all countries user has visited
-	v1.GET("/user/suggestions", userSvc.Suggestions)       // get suggestions
-	v1.POST("/user/visit", userSvc.Visit)                  // visit a country for a user
+	v1.GET("/user/suggestions", userSvc.Suggestions) // TODO: get suggestions
+	v1.POST("/user/visit", userSvc.Visit)            // visit a country for a user
 
 	// /v1/internal
 	internal := v1.Group("/internal")

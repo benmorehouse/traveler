@@ -1,17 +1,22 @@
 # What is this 
 
-An API to hold where users have been in the world.
+An API to hold where users have been in the world and suggest to them where to go next based on where they have been.
 
 # Routes 
 
-POST /v1/users/create               -> create a user 
-GET /v1/users/{user_id}             -> get specific user
-GET /v1/countries                   -> get all countries
-GET /v1/regions                     -> get all regions
-GET /v1/user/countries             -> get countries user has visited or not 
-GET /v1/user/suggestions           -> get country suggestions that a user might like
-POST /v1/users/visit                -> record that a user has visited a country
-GET /v1/refresh-maps                -> refresh maps table using open source API
+GET    /v1/status                --> status of the api
+
+POST   /v1/users/create          --> create a user
+
+GET    /v1/user                  --> get the user
+
+GET    /v1/countries             --> countries
+
+GET    /v1/user/suggestions      --> get suggestions on where the user should go next
+
+POST   /v1/user/visit            --> user has performed a visit
+
+POST   /v1/internal/refresh      --> internal tool to refresh countries in database
 
 # Structure
 

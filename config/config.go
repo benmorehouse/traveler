@@ -18,10 +18,10 @@ func DefaultConfig() Configuration {
 	return Configuration{
 		Host:   "localhost",
 		Port:   "8080",
-		DBHost: "localhost",
+		DBHost: "127.0.0.1",
 		DBPort: "3306",
 		DBUser: "root",
-		DBPass: "",
-		APIURL: "https://restcountries.com/v3.1",
+		DBPass: "password",
+		APIURL: "https://restcountries.com/v3.1/all",
 	}
 }
